@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // import { version } from '../package.json'
-import { greet } from '@quickstand/core';
+import { greet, formatName } from '@quickstand/core';
 import { Command } from 'commander';
 
 const program = new Command();
@@ -15,6 +15,14 @@ program
   .argument('[name]', 'Name to greet')
   .action(async (name = 'world') => {
     console.log(greet(name));
+  });
+
+program
+  .command('format')
+  .description('Format a name')
+  .argument('<name>', 'Name to format')
+  .action(async (name) => {
+    console.log(formatName(name));
   });
 
 program.parse();
