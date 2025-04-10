@@ -1,5 +1,18 @@
 # @quickstand/cli
 
+## 0.2.0
+
+### Minor Changes
+
+- 7ff2c03: Initial release of Quickstand packages
+- 5f4c54d: Test PR
+
+### Patch Changes
+
+- Updated dependencies [7ff2c03]
+- Updated dependencies [5f4c54d]
+  - @quickstand/core@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
