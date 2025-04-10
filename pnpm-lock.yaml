@@ -14,6 +14,9 @@ importers:
       turbo:
         specifier: latest
         version: 2.5.0
+      typescript:
+        specifier: 5.8.2
+        version: 5.8.2
 
   packages/cli:
     dependencies:
@@ -27,6 +30,9 @@ importers:
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
+      '@quickstand/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
       '@types/node':
         specifier: ^22.14.0
         version: 22.14.0
@@ -48,6 +54,9 @@ importers:
       '@biomejs/biome':
         specifier: ^1.9.4
         version: 1.9.4
+      '@quickstand/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
       '@types/node':
         specifier: ^22.14.0
         version: 22.14.0
@@ -63,6 +72,8 @@ importers:
       vitest:
         specifier: ^3.1.1
         version: 3.1.1(@types/node@22.14.0)
+
+  packages/tsconfig: {}
 
 packages:
 
@@ -1233,6 +1244,11 @@ packages:
 
   turbo@2.5.0:
     resolution: {integrity: sha512-PvSRruOsitjy6qdqwIIyolv99+fEn57gP6gn4zhsHTEcCYgXPhv6BAxzAjleS8XKpo+Y582vTTA9nuqYDmbRuA==}
+    hasBin: true
+
+  typescript@5.8.2:
+    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
+    engines: {node: '>=14.17'}
     hasBin: true
 
   typescript@5.8.3:
@@ -2436,6 +2452,8 @@ snapshots:
       turbo-linux-arm64: 2.5.0
       turbo-windows-64: 2.5.0
       turbo-windows-arm64: 2.5.0
+
+  typescript@5.8.2: {}
 
   typescript@5.8.3: {}
 

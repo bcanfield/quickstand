@@ -29,6 +29,7 @@
     "commander": "^13.1.0"
   },
   "devDependencies": {
+    "@quickstand/tsconfig": "workspace:*",
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.14.0",
     "tsup": "^8.4.0",

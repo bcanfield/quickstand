@@ -22,6 +22,7 @@
     "format": "biome format --write ."
   },
   "devDependencies": {
+    "@quickstand/tsconfig": "workspace:*",
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.14.0",
     "@vitest/coverage-v8": "^3.1.1",
