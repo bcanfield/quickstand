@@ -1,6 +1,7 @@
 {
   "name": "@quickstand/cli",
   "version": "0.0.0",
+  "private": false,
   "description": "Quickstand CLI tool",
   "type": "module",
   "main": "./dist/index.js",
