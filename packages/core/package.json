@@ -1,6 +1,6 @@
 {
   "name": "@quickstand/core",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Quickstand core functionality",
   "type": "module",
   "main": "./dist/index.js",
