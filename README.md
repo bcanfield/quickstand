@@ -35,7 +35,3 @@ npm install -g quickstand
 - `pnpm test` - Run tests
 - `pnpm lint` - Run Biome linter
 - `pnpm format` - Format code with Biome
-
-## License
-
-ISC 
