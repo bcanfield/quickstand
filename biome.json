@@ -3,6 +3,12 @@
   "organizeImports": {
     "enabled": true
   },
+  "files": {
+    "ignore": [
+      "node_modules",
+      "dist"
+    ]
+  },
   "linter": {
     "enabled": true,
     "rules": {
@@ -19,7 +25,7 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
-      "trailingComma": "es5",
+      "trailingCommas": "es5",
       "semicolons": "always"
     }
   }

@@ -9,6 +9,7 @@
     "dev": "turbo run dev",
     "test": "turbo run test",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix",
     "format": "turbo run format",
     "publish-packages": "turbo run build lint test && changeset version && changeset publish",
     "cli": "turbo run cli -- "
