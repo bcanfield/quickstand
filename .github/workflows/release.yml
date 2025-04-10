@@ -21,10 +21,10 @@ jobs:
           version: latest
           run_install: false
 
-      - name: Setup Node.js 18.x
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: "lts/*"
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
