@@ -1,5 +1,11 @@
 # @quickstand/core
 
+## 0.2.3
+
+### Patch Changes
+
+- fb91e34: Test3
+
 ## 0.2.2
 
 ### Patch Changes
