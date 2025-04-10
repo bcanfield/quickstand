@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 // import { version } from '../package.json'
-import { greet, formatName } from '@quickstand/core';
+import { formatName, greet } from '@quickstand/core';
 import { Command } from 'commander';
 
 const program = new Command();
