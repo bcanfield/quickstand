@@ -6,7 +6,9 @@
   "files": {
     "ignore": [
       "node_modules",
-      "dist"
+      "dist",
+      "package.json",
+      "pnpm-lock.yaml"
     ]
   },
   "linter": {
