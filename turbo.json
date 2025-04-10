@@ -13,6 +13,10 @@
       "dependsOn": ["build"],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
+    "cli": {
+      "dependsOn": ["build"],
+      "inputs": ["dist/**"]
+    },
     "lint": {},
     "format": {}
   }

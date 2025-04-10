@@ -23,9 +23,9 @@ npm install -g quickstand
    ```bash
    pnpm install
    ```
-3. Start development:
+3. Interact with CLI. Code changes will be reflected automatically
    ```bash
-   pnpm dev
+   pnpm cli -h
    ```
 
 ## Scripts
