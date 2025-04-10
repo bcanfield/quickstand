@@ -1,5 +1,11 @@
 # @quickstand/core
 
+## 0.2.2
+
+### Patch Changes
+
+- 1e9ba14: Test fix again
+
 ## 0.2.1
 
 ### Patch Changes
