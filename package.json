@@ -10,6 +10,7 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "format": "turbo run format",
+    "publish-packages": "turbo run build lint test && changeset version && changeset publish",
     "cli": "turbo run cli -- "
   },
   "keywords": [],
@@ -19,13 +20,8 @@
   "workspaces": [
     "packages/*"
   ],
-  "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/commit-analyzer": "^13.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^11.0.1",
-    "@semantic-release/npm": "^12.0.1",
-    "@semantic-release/release-notes-generator": "^14.0.3",
+  "dependencies": {
+    "@changesets/cli": "^2.28.1",
     "turbo": "latest"
   }
 }
