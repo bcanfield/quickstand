@@ -1,6 +1,6 @@
 {
   "name": "@quickstand/core",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": false,
   "description": "Quickstand core functionality",
   "type": "module",
@@ -8,7 +8,9 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "sideEffects": false,
-  "files": ["dist/**"],
+  "files": [
+    "dist/**"
+  ],
   "publishConfig": {
     "access": "public"
   },
