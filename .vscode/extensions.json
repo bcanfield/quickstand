@@ -1,8 +1,6 @@
 {
   "recommendations": [
     "biomejs.biome",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "ms-vscode.vscode-typescript-next",
     "christian-kohler.npm-intellisense",
     "christian-kohler.path-intellisense"
