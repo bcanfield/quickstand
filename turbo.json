@@ -17,7 +17,8 @@
       "dependsOn": ["build"],
       "inputs": ["dist/**"]
     },
+    "type-check": {},
     "lint": {},
-    "format": {}
+    "lint:fix": {}
   }
 } 
