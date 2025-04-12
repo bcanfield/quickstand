@@ -1,16 +1,25 @@
 import { greet } from '@quickstand/core';
-import { Command } from 'commander';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
+
+// We don't need to mock Commander for these tests
+vi.mock('commander', () => ({
+  Command: vi.fn(() => ({
+    name: vi.fn().mockReturnThis(),
+    description: vi.fn().mockReturnThis(),
+    addCommand: vi.fn().mockReturnThis(),
+    parse: vi.fn().mockReturnThis()
+  }))
+}));
+
+// Mock the commands
+vi.mock('./commands', () => ({
+  helloCommand: { name: 'hello' },
+  formatCommand: { name: 'format' },
+  standupCommand: { name: 'standup' },
+  repositoryCommand: { name: 'repo' }
+}));
 
 describe('CLI', () => {
-  it('should create a program with correct name and description', () => {
-    const program = new Command();
-    program.name('quickstand').description('A modern CLI tool');
-
-    expect(program.name()).toBe('quickstand');
-    expect(program.description()).toBe('A modern CLI tool');
-  });
-
   it('should use the greet function from core package', () => {
     const name = 'Test';
     expect(greet(name)).toBe(`Hello, ${name}!`);

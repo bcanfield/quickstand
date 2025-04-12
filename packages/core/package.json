@@ -23,12 +23,16 @@
     "lint:fix": "biome check . --write"
   },
   "devDependencies": {
-    "@quickstand/tsconfig": "workspace:*",
     "@biomejs/biome": "^1.9.4",
+    "@quickstand/tsconfig": "workspace:*",
     "@types/node": "^22.14.0",
+    "@types/uuid": "^10.0.0",
     "@vitest/coverage-v8": "^3.1.1",
     "tsup": "^8.4.0",
     "typescript": "^5.8.3",
     "vitest": "^3.1.1"
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
   }
 }

@@ -8,3 +8,8 @@ export function formatName(name: string): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
 }
+
+export * from './services/standup-service';
+export * from './services/repository-service';
+export * from './types';
+export * from './utils';
