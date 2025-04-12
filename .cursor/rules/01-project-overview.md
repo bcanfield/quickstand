@@ -10,7 +10,7 @@ This is a CLI tool that helps developers create status updates by managing git l
 
 ## Documentation References
 
-For detailed information, please refer to the following documentation:
+For all project information, please refer to the documentation in the `docs` directory:
 
 - [Project Guidelines](../../docs/project-guidelines.md) - Overall project standards and practices
 - [Getting Started](../../docs/getting-started.md) - Setup and basic usage guide
@@ -28,7 +28,7 @@ quickstand/
 │   ├── cli/               # Command-line interface
 │   ├── core/              # Core functionality 
 │   └── tsconfig/          # Shared TypeScript configuration
-└── docs/                  # Documentation
+└── docs/                  # Documentation - single source of truth
 ```
 
 When working on this project, always follow the guidelines specified in the documentation. 

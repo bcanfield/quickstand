@@ -1,0 +1,22 @@
+# Instructions for OpenHands AI Agent
+
+## Documentation Reference
+
+This project's documentation is maintained exclusively in the `/docs` directory. 
+Please refer to these documents for all guidelines, patterns, and requirements:
+
+- `/docs/project-guidelines.md` - Overall project standards
+- `/docs/architecture.md` - Architecture and design patterns
+- `/docs/code-style-guide.md` - Coding standards and patterns
+- `/docs/ai-agent-guide.md` - AI agent development guide
+- `/docs/getting-started.md` - Setup and development workflow
+
+## Single Source of Truth
+
+The documentation in the `/docs` directory is the single source of truth for this project.
+When resolving issues or implementing features, always follow the guidance in these documents.
+
+## Repository Information
+
+For a basic understanding of the project, this is a CLI tool for managing developer status updates
+using git logs and AI. See the documentation for all details about implementation. 

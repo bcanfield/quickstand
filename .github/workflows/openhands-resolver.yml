@@ -1,0 +1,50 @@
+name: OpenHands Issue Resolver
+
+on:
+  issues:
+    types: [labeled, opened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    if: |
+      (github.event_name == 'issues' && contains(github.event.issue.labels.*.name, 'fix-me')) ||
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@openhands-agent'))
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install OpenHands
+        run: pip install openhands-ai
+
+      - name: Resolve issue
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN || github.token }}
+          GIT_USERNAME: ${{ secrets.PAT_USERNAME || github.actor }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_BASE_URL: ${{ secrets.LLM_BASE_URL || '' }}
+          LLM_MODEL: "anthropic/claude-3-5-sonnet-20241022"
+        run: |
+          if [[ "${{ github.event_name }}" == "issues" ]]; then
+            python -m openhands.resolver.resolve_issue --selected-repo ${{ github.repository }} --issue-number ${{ github.event.issue.number }}
+          elif [[ "${{ github.event_name }}" == "issue_comment" ]]; then
+            python -m openhands.resolver.resolve_issue --selected-repo ${{ github.repository }} --issue-number ${{ github.event.issue.number }} --comment-id ${{ github.event.comment.id }}
+          fi
+          
+          # Upload PR as draft
+          python -m openhands.resolver.send_pull_request --issue-number ${{ github.event.issue.number }} --username ${{ secrets.PAT_USERNAME || github.actor }} --pr-type draft
+          
+          # Remove fix-me label if applicable
+          if [[ "${{ github.event_name }}" == "issues" ]]; then
+            gh issue edit ${{ github.event.issue.number }} --remove-label "fix-me" || true
+          fi 
