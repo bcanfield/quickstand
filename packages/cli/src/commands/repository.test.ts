@@ -1,41 +1,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as core from '@quickstand/core';
 
-// Mock commander - needed so that repositoryCommand can be imported 
-vi.mock('commander', () => {
-  return {
-    Command: vi.fn().mockImplementation(() => {
-      return {
-        description: () => ({ 
-          argument: () => ({
-            option: () => ({
-              option: () => ({
-                action: () => {}
-              }),
-              action: () => {}
-            }),
-            action: () => {}
-          })
-        }),
-        option: () => ({
-          option: () => ({
-            action: () => {}
-          }),
-          action: () => {}
-        }),
-        addCommand: () => ({}),
-        action: () => ({})
-      };
-    })
-  };
-});
-
 // Mock the RepositoryService
 vi.mock('@quickstand/core', async () => {
   const actual = await vi.importActual('@quickstand/core');
   return {
     ...(actual as object),
-    RepositoryService: vi.fn().mockImplementation(() => ({
+    RepositoryService: vi.fn(() => ({
       addRepository: vi.fn(),
       listRepositories: vi.fn(),
       removeRepository: vi.fn()
@@ -43,13 +14,10 @@ vi.mock('@quickstand/core', async () => {
   };
 });
 
-// Import after mocking
-import { repositoryCommand } from './repository';
-
-describe('repositoryCommand', () => {
-  // Mock console.log and console.error
-  const consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
-  const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+describe('repository command', () => {
+  // Direct console spies without mocking implementation
+  const consoleLogSpy = vi.spyOn(console, 'log');
+  const consoleErrorSpy = vi.spyOn(console, 'error');
   
   let repositoryServiceMock: any;
   
@@ -60,6 +28,9 @@ describe('repositoryCommand', () => {
     
     // Get a fresh instance of RepositoryService mock
     repositoryServiceMock = new core.RepositoryService();
+    
+    // Reset all mocks
+    vi.clearAllMocks();
   });
   
   afterEach(() => {
@@ -143,7 +114,7 @@ describe('repositoryCommand', () => {
         console.error(`Error: ${error instanceof Error ? error.message : String(error)}`);
       }
       
-      // Verify the service was called correctly
+      // Verify the service was called
       expect(repositoryServiceMock.listRepositories).toHaveBeenCalled();
       
       // Verify the output

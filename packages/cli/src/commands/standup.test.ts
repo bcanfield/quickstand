@@ -1,35 +1,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import * as core from '@quickstand/core';
 
-// Mock commander - needed so that standupCommand can be imported 
-vi.mock('commander', () => {
-  return {
-    Command: vi.fn().mockImplementation(() => {
-      return {
-        description: () => ({ 
-          argument: () => ({
-            option: () => ({
-              action: () => {}
-            }),
-            action: () => {}
-          })
-        }),
-        option: () => ({
-          action: () => {}
-        }),
-        addCommand: () => ({}),
-        action: () => ({})
-      };
-    })
-  };
-});
-
 // Mock the StandupService
 vi.mock('@quickstand/core', async () => {
   const actual = await vi.importActual('@quickstand/core');
   return {
     ...(actual as object),
-    StandupService: vi.fn().mockImplementation(() => ({
+    StandupService: vi.fn(() => ({
       createStandup: vi.fn(),
       listStandups: vi.fn(),
       setDefaultStandup: vi.fn(),
@@ -38,13 +15,10 @@ vi.mock('@quickstand/core', async () => {
   };
 });
 
-// Import after mocking
-import { standupCommand } from './standup';
-
-describe('standupCommand', () => {
-  // Mock console.log and console.error
-  const consoleLogSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
-  const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+describe('standup command', () => {
+  // Direct console spies without mocking implementation
+  const consoleLogSpy = vi.spyOn(console, 'log');
+  const consoleErrorSpy = vi.spyOn(console, 'error');
   
   let standupServiceMock: any;
   
@@ -55,6 +29,9 @@ describe('standupCommand', () => {
     
     // Get a fresh instance of StandupService mock
     standupServiceMock = new core.StandupService();
+    
+    // Reset all mocks
+    vi.clearAllMocks();
   });
   
   afterEach(() => {
