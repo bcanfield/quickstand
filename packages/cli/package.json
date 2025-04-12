@@ -21,7 +21,8 @@
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
     "test": "vitest run --coverage",
     "lint": "biome check .",
-    "format": "biome format --write .",
+    "lint:fix": "biome check . --write",
+    "type-check": "tsc --noEmit",
     "cli": "node dist/index.js"
   },
   "dependencies": {
